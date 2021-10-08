@@ -1,0 +1,29 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #4a350a93;
+  width: 100vw;
+  height: 40vh;
+  z-index: 1;
+}
+
+.header::before {
+  position: absolute;
+  content: '';
+  background: url('../../assets/images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 40vh;
+  z-index: -1;
+  opacity: .7;
+}
+
+.title {
+  font-size: 64px;
+  color: #fff;
+}
