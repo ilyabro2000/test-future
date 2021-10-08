@@ -1,0 +1,22 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+  - 'airbnb-base'
+  - 'plugin:react-hooks/recommended'
+
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 12
+  sourceType: module
+plugins:
+  - react
+rules:
+  react/prop-types: 0
+  import/extensions: 0
+  import/no-unresolved: 0
+  no-console: 0
