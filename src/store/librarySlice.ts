@@ -1,14 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-
-interface libraryState {
-  books: any,
-  maxBooks: number,
-  categories: string,
-  sortVariant: string,
-  searchString: string,
-  bookPage: string,
-}
+import { libraryState } from '../types/types';
 
 const initialState: libraryState = {
   books: [],
@@ -17,20 +9,22 @@ const initialState: libraryState = {
   sortVariant: 'relevance',
   searchString: '',
   bookPage: 'list',
+  error: '',
+  loading: false,
 };
 
 const librarySlice: any = createSlice({
   name: 'libraryInfo',
   initialState,
   reducers: {
-    setInitialState: (state, { payload: books }) => {
-      state.books.push(books);
+    addSearchError: (state, { payload: err }) => {
+      state.error = err;
     },
     incrimentAmountOfBooks: (state, { payload: amount }) => {
       state.maxBooks += amount;
     },
     addBooks: (state, { payload: newBooks }) => {
-      state.books.push([...newBooks]);
+      state.books = newBooks;
     },
     changeCategory: (state, { payload: currentCategory }) => {
       state.categories = currentCategory;
@@ -38,23 +32,27 @@ const librarySlice: any = createSlice({
     changeSortVariant: (state, { payload: variant }) => {
       state.sortVariant = variant;
     },
-    addSearchString: (state, { payload: searchString }) => {
+    addQueryString: (state, { payload: searchString }) => {
       state.searchString = searchString;
     },
     switchPage: (state, { payload: value }) => {
       state.bookPage = value;
     },
+    swithLoading: (state, { payload: value }) => {
+      state.loading = value;
+    },
   },
 });
 
 export const {
-  setInitialState,
   incrimentAmountOfBooks,
   addBooks,
   changeCategory,
   changeSortVariant,
-  addSearchString,
+  addQueryString,
   switchPage,
+  addSearchError,
+  swithLoading,
 } = librarySlice.actions;
 
 export default librarySlice.reducer;
