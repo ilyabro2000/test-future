@@ -1,6 +1,6 @@
 import React from 'react';
-import icon from '../../../assets/icons/search_black_24dp.svg'
-import classes from './SearchForm.module.css'
+import icon from '../../../assets/icons/search_black_24dp.svg';
+import classes from './SearchForm.module.css';
 
 const SearchForm = () => {
   return (

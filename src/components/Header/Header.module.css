@@ -6,8 +6,8 @@
   justify-content: center;
   background-color: #4a350a93;
   width: 100vw;
-  height: 40vh;
-  z-index: 1;
+  height: 60vh;
+  z-index: 1;  
 }
 
 .header::before {
@@ -18,12 +18,43 @@
   background-position: center;
   background-size: cover;
   width: 100vw;
-  height: 40vh;
+  height: 60vh;
   z-index: -1;
   opacity: .7;
 }
 
 .title {
   font-size: 64px;
+  line-height: 80%;
   color: #fff;
+  text-shadow: #4a350af5 5px 0px 10px;
+  margin-bottom: 20px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.selectWrapper {
+  color: #fff;
+}
+
+.select {
+  background: #F9F0DA;
+  color: #4a350af5;
+  border:0px;
+  outline:0px;
+  width: 80px;
+  height: 20px;
+  
+}
+
+.selectTitle {
+  font-size: 18px;
+  text-shadow: #4a350af5 5px 0px 10px;
+  border-radius: 3px;
+  border:0px;
+  outline:0px;
 }
