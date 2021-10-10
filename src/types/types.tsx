@@ -7,8 +7,18 @@ export interface libraryState {
   bookPage: string,
   error: string,
   loading: boolean,
+  totalItems: number,
 }
 export interface searchData {
   items: [],
-  volumeInfo: object
+  volumeInfo: object,
+  totalItems: string,
+}
+export interface ibook {
+  authors: [],
+  categories: string[],
+  imageLinks: {
+    smallThumbnail: string,
+  },
+  title: string,
 }

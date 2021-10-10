@@ -1,0 +1,15 @@
+.bookListSection {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.totalResult {
+  margin: 15px auto;
+  font-weight: normal;
+  width: 150px;
+}
+.bookList {
+  display: flex;
+  flex-flow: row wrap;
+}

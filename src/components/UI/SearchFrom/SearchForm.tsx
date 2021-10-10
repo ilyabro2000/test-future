@@ -6,6 +6,7 @@ import {
   addBooks,
   swithLoading,
   addQueryString,
+  setTotalItems,
 } from '../../../store/librarySlice';
 import icon from '../../../assets/icons/search_black_24dp.svg';
 import classes from './SearchForm.module.css';
@@ -22,7 +23,8 @@ const SearchForm = () => {
     axios.get<searchData>(`https://www.googleapis.com/books/v1/volumes?q=${queryString}`)
       .then(({ data }) => {
         const books = data.items.map((item: searchData) => item.volumeInfo);
-        dispatch(addBooks([books]));
+        dispatch(addBooks(books));
+        dispatch(setTotalItems(data.totalItems));
       })
       .catch((err) => dispatch(addSearchError(err)));
     setQueryString('');

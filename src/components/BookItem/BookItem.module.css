@@ -1,0 +1,43 @@
+.bookItem {
+  position: relative;
+  width: 230px;
+  height: 420px;
+  background-color: #d9d6c7;
+  margin: 8px;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.bookItem:hover {
+  top: -2px;
+  left: -2px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 2px 5px 0px rgba(34, 60, 80, 0.2);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center; 
+  height: 240px;
+}
+.bookBody {
+  margin: 10px;
+}
+.authors {
+  margin-top: 10px;
+}
+.categories {
+  margin-top: 10px;
+}
+.title {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.bookImage {
+  -webkit-box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+  -moz-box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+  box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+}

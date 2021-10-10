@@ -11,6 +11,7 @@ const initialState: libraryState = {
   bookPage: 'list',
   error: '',
   loading: false,
+  totalItems: 0,
 };
 
 const librarySlice: any = createSlice({
@@ -41,6 +42,9 @@ const librarySlice: any = createSlice({
     swithLoading: (state, { payload: value }) => {
       state.loading = value;
     },
+    setTotalItems: (state, { payload: value }) => {
+      state.totalItems = value;
+    },
   },
 });
 
@@ -53,6 +57,10 @@ export const {
   switchPage,
   addSearchError,
   swithLoading,
+  setTotalItems,
 } = librarySlice.actions;
+
+// eslint-disable-next-line
+export type RootState = ReturnType<typeof librarySlice.reducer>
 
 export default librarySlice.reducer;
