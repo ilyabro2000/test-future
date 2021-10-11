@@ -1,0 +1,45 @@
+.bookPageContent {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px 0;
+}
+.cancelBtn {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  opacity: .6;
+  transition: .5s;
+}
+.cancelBtn:hover {
+  opacity: .9;
+  transition: .5s;
+}
+.imageWrapper {
+  width: 200px;
+}
+.bookImage {
+  -webkit-box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+  -moz-box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+  box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
+  object-fit: cover;
+}
+.bookInfo {
+  padding: 0 20px;
+}
+.category {
+  padding-bottom: 25px;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.authors {
+  font-size: 14px;
+  padding-bottom: 40px;
+}
+.description {
+  border: 1px solid #4a350af5;
+  padding: 5px;
+}

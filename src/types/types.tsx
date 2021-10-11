@@ -9,6 +9,7 @@ export interface libraryState {
   loading: boolean,
   totalItems: number,
   startIndex: number,
+  bookCardInfo: null | object,
 }
 export interface searchData {
   items: [],
@@ -21,7 +22,7 @@ export interface ibook {
     authors: [],
     categories: string[],
     imageLinks: {
-      smallThumbnail: string,
+      thumbnail: string,
     },
     title: string,
   }

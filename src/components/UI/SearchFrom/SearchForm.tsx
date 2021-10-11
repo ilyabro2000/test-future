@@ -7,6 +7,7 @@ import {
   addQueryString,
   RootState,
   setTotalItems,
+  addBookCardInfo,
 } from '../../../store/librarySlice';
 import icon from '../../../assets/icons/search_black_24dp.svg';
 import classes from './SearchForm.module.css';
@@ -25,6 +26,7 @@ const SearchForm = () => {
 
   const sendQuery = (e: React.MouseEvent) => {
     e.preventDefault();
+    dispatch(addBookCardInfo(null));
     dispatch(switchLoading(true));
     dispatch(addQueryString(queryString));
     if (!queryString) return;

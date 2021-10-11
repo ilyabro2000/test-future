@@ -13,6 +13,7 @@ const initialState: libraryState = {
   loading: false,
   totalItems: 0,
   startIndex: 0,
+  bookCardInfo: null,
 };
 
 const librarySlice: any = createSlice({
@@ -52,6 +53,9 @@ const librarySlice: any = createSlice({
     setStartIndex: (state, { payload: index }) => {
       state.startIndex = index;
     },
+    addBookCardInfo: (state, { payload: book }) => {
+      state.bookCardInfo = book;
+    },
   },
 });
 
@@ -67,6 +71,7 @@ export const {
   switchLoading,
   setTotalItems,
   setStartIndex,
+  addBookCardInfo,
 } = librarySlice.actions;
 
 // eslint-disable-next-line
