@@ -12,6 +12,7 @@ const initialState: libraryState = {
   error: '',
   loading: false,
   totalItems: 0,
+  startIndex: 0,
 };
 
 const librarySlice: any = createSlice({
@@ -26,6 +27,9 @@ const librarySlice: any = createSlice({
     },
     addBooks: (state, { payload: newBooks }) => {
       state.books = newBooks;
+    },
+    addMoreBooks: (state, { payload: newBooks }) => {
+      newBooks.map((newBook: any) => state.books.push(newBook));
     },
     changeCategory: (state, { payload: currentCategory }) => {
       state.categories = currentCategory;
@@ -45,12 +49,16 @@ const librarySlice: any = createSlice({
     setTotalItems: (state, { payload: value }) => {
       state.totalItems = value;
     },
+    setStartIndex: (state, { payload: index }) => {
+      state.startIndex = index;
+    },
   },
 });
 
 export const {
   incrimentAmountOfBooks,
   addBooks,
+  addMoreBooks,
   changeCategory,
   changeSortVariant,
   addQueryString,
@@ -58,6 +66,7 @@ export const {
   addSearchError,
   swithLoading,
   setTotalItems,
+  setStartIndex,
 } = librarySlice.actions;
 
 // eslint-disable-next-line

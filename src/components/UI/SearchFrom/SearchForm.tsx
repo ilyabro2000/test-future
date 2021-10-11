@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addSearchError,
   addBooks,
   swithLoading,
   addQueryString,
+  RootState,
   setTotalItems,
 } from '../../../store/librarySlice';
 import icon from '../../../assets/icons/search_black_24dp.svg';
 import classes from './SearchForm.module.css';
 import { searchData } from '../../../types/types';
+import getBooks from '../../../API/fetch';
 
 const SearchForm = () => {
   const [queryString, setQueryString] = useState('');
   const dispatch = useDispatch();
+  const {
+    categories,
+    sortVariant,
+    maxBooks,
+    startIndex,
+  } = useSelector((state: RootState) => state.libraryInfo);
+
   const sendQuery = (e: React.MouseEvent) => {
+    e.preventDefault();
     dispatch(swithLoading(true));
     dispatch(addQueryString(queryString));
-    e.preventDefault();
     if (!queryString) return;
-    axios.get<searchData>(`https://www.googleapis.com/books/v1/volumes?q=${queryString}`)
+    getBooks(queryString, categories, sortVariant, maxBooks, startIndex)
       .then(({ data }) => {
         const books = data.items.map((item: searchData) => item.volumeInfo);
         dispatch(addBooks(books));
+        dispatch(addQueryString(queryString));
         dispatch(setTotalItems(data.totalItems));
       })
-      .catch((err) => dispatch(addSearchError(err)));
+      .catch((err) => dispatch(addSearchError(err.message)));
     setQueryString('');
     dispatch(swithLoading(false));
   };

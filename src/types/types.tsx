@@ -8,6 +8,7 @@ export interface libraryState {
   error: string,
   loading: boolean,
   totalItems: number,
+  startIndex: number,
 }
 export interface searchData {
   items: [],

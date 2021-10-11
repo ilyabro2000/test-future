@@ -7,6 +7,7 @@
   padding: 10px;
   border-radius: 3px;
   cursor: pointer;
+  overflow: hidden;
 }
 .bookItem:hover {
   top: -2px;

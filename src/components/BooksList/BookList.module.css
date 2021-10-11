@@ -8,8 +8,26 @@
   margin: 15px auto;
   font-weight: normal;
   width: 150px;
+  text-align:center;
 }
 .bookList {
   display: flex;
   flex-flow: row wrap;
+}
+.loadMoreBtn {
+  margin: 20px auto;
+  padding: 5px 10px;
+  background-color: #c4944d;
+  color: #F9F0DA;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: .8;
+  transition: .5s;
+  font-weight: 600;
+}
+.loadMoreBtn:hover {
+  opacity: 1;
+  transition: .5s;
 }
