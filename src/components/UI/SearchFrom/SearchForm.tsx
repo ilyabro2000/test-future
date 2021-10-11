@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   addSearchError,
   addBooks,
-  swithLoading,
+  switchLoading,
   addQueryString,
   RootState,
   setTotalItems,
@@ -25,19 +25,22 @@ const SearchForm = () => {
 
   const sendQuery = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(swithLoading(true));
+    dispatch(switchLoading(true));
     dispatch(addQueryString(queryString));
     if (!queryString) return;
     getBooks(queryString, categories, sortVariant, maxBooks, startIndex)
       .then(({ data }) => {
-        const books = data.items.map((item: searchData) => item.volumeInfo);
+        const books = data.items.map(({ volumeInfo, id }: searchData) => {
+          const body = volumeInfo;
+          return { body, id };
+        });
         dispatch(addBooks(books));
         dispatch(addQueryString(queryString));
         dispatch(setTotalItems(data.totalItems));
+        dispatch(switchLoading(false));
       })
       .catch((err) => dispatch(addSearchError(err.message)));
     setQueryString('');
-    dispatch(swithLoading(false));
   };
 
   return (

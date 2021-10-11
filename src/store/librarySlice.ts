@@ -43,7 +43,7 @@ const librarySlice: any = createSlice({
     switchPage: (state, { payload: value }) => {
       state.bookPage = value;
     },
-    swithLoading: (state, { payload: value }) => {
+    switchLoading: (state, { payload: value }) => {
       state.loading = value;
     },
     setTotalItems: (state, { payload: value }) => {
@@ -64,7 +64,7 @@ export const {
   addQueryString,
   switchPage,
   addSearchError,
-  swithLoading,
+  switchLoading,
   setTotalItems,
   setStartIndex,
 } = librarySlice.actions;

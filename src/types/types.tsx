@@ -14,12 +14,15 @@ export interface searchData {
   items: [],
   volumeInfo: object,
   totalItems: string,
+  id: string,
 }
 export interface ibook {
-  authors: [],
-  categories: string[],
-  imageLinks: {
-    smallThumbnail: string,
-  },
-  title: string,
+  body: {
+    authors: [],
+    categories: string[],
+    imageLinks: {
+      smallThumbnail: string,
+    },
+    title: string,
+  }
 }
