@@ -8,6 +8,7 @@ import {
   RootState,
   setTotalItems,
   addBookCardInfo,
+  deleteState,
 } from '../../../store/librarySlice';
 import icon from '../../../assets/icons/search_black_24dp.svg';
 import classes from './SearchForm.module.css';
@@ -20,8 +21,6 @@ const SearchForm = () => {
   const {
     categories,
     sortVariant,
-    maxBooks,
-    startIndex,
   } = useSelector((state: RootState) => state.libraryInfo);
 
   const sendQuery = (e: React.MouseEvent) => {
@@ -30,12 +29,13 @@ const SearchForm = () => {
     dispatch(switchLoading(true));
     dispatch(addQueryString(queryString));
     if (!queryString) return;
-    getBooks(queryString, categories, sortVariant, maxBooks, startIndex)
+    getBooks(queryString, categories, sortVariant, 30, 0)
       .then(({ data }) => {
         const books = data.items.map(({ volumeInfo, id }: searchData) => {
           const body = volumeInfo;
           return { body, id };
         });
+        dispatch(deleteState());
         dispatch(addBooks(books));
         dispatch(addQueryString(queryString));
         dispatch(setTotalItems(data.totalItems));

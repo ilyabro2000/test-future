@@ -9,7 +9,6 @@ const BookPage = () => {
   const { bookCardInfo } = useSelector((state: RootState) => state.libraryInfo);
   const dispatch = useDispatch();
   const getString = (data: string[]) => {
-    console.log(data);
     if (data.length > 1) return data.join(', ');
     return data[0];
   };
@@ -27,6 +26,7 @@ const BookPage = () => {
               : <img src={defaultCover} alt="amage book" className={classes.bookImage}/>}
           </div>
           <div className={classes.bookInfo}>
+            <img src={cancel} alt="cencel" onClick={exitBookPageHandler} className={classes.cancelBtn}/>
             {bookCardInfo.categories
               ? <p className={classes.category}>{getString(bookCardInfo.categories)}</p>
               : null}
@@ -40,7 +40,6 @@ const BookPage = () => {
               ? <p className={classes.description}>{bookCardInfo.description}</p>
               : null}
           </div>
-          <img src={cancel} alt="cencel" onClick={exitBookPageHandler} className={classes.cancelBtn}/>
         </div>
       </div>
     </div>

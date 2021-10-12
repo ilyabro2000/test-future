@@ -27,10 +27,7 @@ const librarySlice: any = createSlice({
       state.maxBooks += amount;
     },
     addBooks: (state, { payload: newBooks }) => {
-      state.books = newBooks;
-    },
-    addMoreBooks: (state, { payload: newBooks }) => {
-      newBooks.map((newBook: any) => state.books.push(newBook));
+      state.books = [...state.books, ...newBooks];
     },
     changeCategory: (state, { payload: currentCategory }) => {
       state.categories = currentCategory;
@@ -56,13 +53,15 @@ const librarySlice: any = createSlice({
     addBookCardInfo: (state, { payload: book }) => {
       state.bookCardInfo = book;
     },
+    deleteState: (state) => {
+      state.books = [];
+    },
   },
 });
 
 export const {
   incrimentAmountOfBooks,
   addBooks,
-  addMoreBooks,
   changeCategory,
   changeSortVariant,
   addQueryString,
@@ -72,6 +71,8 @@ export const {
   setTotalItems,
   setStartIndex,
   addBookCardInfo,
+  getUnique,
+  deleteState,
 } = librarySlice.actions;
 
 // eslint-disable-next-line

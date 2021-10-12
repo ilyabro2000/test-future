@@ -2,9 +2,12 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 50px 0;
+  padding: 50px 10px;
 }
 .cancelBtn {
+  position: absolute;
+  right: 35px;
+  top: 0px;
   width: 35px;
   height: 35px;
   cursor: pointer;
@@ -25,6 +28,7 @@
   object-fit: cover;
 }
 .bookInfo {
+  position: relative;
   padding: 0 20px;
 }
 .category {

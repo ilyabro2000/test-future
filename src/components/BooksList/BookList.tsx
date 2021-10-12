@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   RootState,
-  addMoreBooks,
+  addBooks,
   addSearchError,
   switchLoading,
 } from '../../store/librarySlice';
@@ -23,16 +23,17 @@ const BookList = () => {
     queryString,
     loading,
   } = useSelector((state: RootState) => state.libraryInfo);
+  console.log(books);
   const dispatch = useDispatch();
   const loadMoreHandler = () => {
     dispatch(switchLoading(true));
-    getBooks(queryString, categories, sortVariant, maxBooks, startIndex + 30)
+    getBooks(queryString, categories, sortVariant, maxBooks, startIndex + 31)
       .then(({ data }) => {
         const newBooks = data.items.map(({ volumeInfo, id }: searchData) => {
           const body = volumeInfo;
           return { body, id };
         });
-        dispatch(addMoreBooks(newBooks));
+        dispatch(addBooks(newBooks));
         dispatch(switchLoading(false));
       })
       .catch((err) => dispatch(addSearchError(err.message)));

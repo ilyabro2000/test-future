@@ -43,3 +43,9 @@
   box-shadow: 8px 11px 27px -11px rgba(24, 18, 5, 0.15);
   object-fit: cover;
 }
+@media (max-width: 420px) {
+  .bookItem {
+    width: 290px;
+    margin: 10px 0;
+  }
+}

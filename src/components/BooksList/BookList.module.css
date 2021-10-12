@@ -1,3 +1,5 @@
+
+
 .bookListSection {
   display: flex;
   justify-content: center;
@@ -14,6 +16,8 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+
 .loadMoreBtn {
   margin: 20px auto;
   padding: 5px 10px;
@@ -30,4 +34,11 @@
 .loadMoreBtn:hover {
   opacity: 1;
   transition: .5s;
+}
+@media (max-width: 420px) {
+  .bookList {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+  }
 }
