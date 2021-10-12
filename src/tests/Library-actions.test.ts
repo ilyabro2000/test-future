@@ -80,3 +80,7 @@ it('add and delete books', () => {
   const stateAfterDeleting = reducer(stateAfterAdding, deleteState());
   expect(stateAfterDeleting.books).toEqual([]);
 });
+it('added books this duplicate item', () => {
+  const newState = reducer(state, addBooks([{book: 1}, {book: 1}]));
+  expect(newState.books).toEqual([{book: 1}]);
+});

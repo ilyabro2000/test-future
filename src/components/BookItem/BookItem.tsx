@@ -6,7 +6,7 @@ import { addBookCardInfo } from '../../store/librarySlice';
 import defaultCover from '../../assets/icons/default_cover_book.svg';
 
 interface BookItemProps {
-  book: ibook;
+  book: ibook,
 }
 
 const BookItem: FC<BookItemProps> = ({ book }) => {

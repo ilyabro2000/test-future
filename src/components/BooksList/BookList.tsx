@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import _ from 'lodash';
 import {
   RootState,
   addBooks,
@@ -51,7 +52,7 @@ const BookList = () => {
           (loading)
             ? <Loader/>
             : <div className={classes.bookList}>
-                {books.map((book: any) => <BookItem book={book} key={book.id}/>)}
+                {books.map((book: any) => <BookItem book={book} key={_.uniqueId()}/>)}
               </div>
         }
         {books.length

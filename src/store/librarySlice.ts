@@ -27,7 +27,14 @@ const librarySlice: any = createSlice({
       state.maxBooks += amount;
     },
     addBooks: (state, { payload: newBooks }) => {
-      state.books = [...state.books, ...newBooks];
+      const unfilteredBooks = [...state.books, ...newBooks];
+      const filteredBooks = unfilteredBooks.filter((book, index) => {
+        const stringedBook = JSON.stringify(book);
+        return index === unfilteredBooks.findIndex((obj) => (
+          JSON.stringify(obj) === stringedBook
+        ));
+      });
+      state.books = filteredBooks;
     },
     changeCategory: (state, { payload: currentCategory }) => {
       state.categories = currentCategory;
