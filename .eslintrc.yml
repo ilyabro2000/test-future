@@ -5,7 +5,6 @@ env:
 extends:
   - 'eslint:recommended'
   - 'plugin:react/recommended'
-  - 'airbnb-base'
   - 'plugin:react-hooks/recommended'
 
 parserOptions:
@@ -15,7 +14,6 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-  - only-warn
 rules:
   react/prop-types: 0
   import/extensions: 0

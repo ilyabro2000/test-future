@@ -24,7 +24,6 @@ const BookList = () => {
     queryString,
     loading,
   } = useSelector((state: RootState) => state.libraryInfo);
-  console.log(books);
   const dispatch = useDispatch();
   const loadMoreHandler = () => {
     dispatch(switchLoading(true));
